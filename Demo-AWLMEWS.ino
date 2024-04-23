@@ -11,9 +11,9 @@ bool server_connected = false;
 const float prototype_height = 30.48;
 const float critical_height = 25;
 
-const int siren = D3;
+const int siren = D7;
 
-void update_state(){
+  void update_state(){
   wifi_connected = WiFi.status() == WL_CONNECTED;
   server_connected = server.connected();
 }
@@ -60,13 +60,13 @@ void upload_reading(ull interval){
     last_time = current_time;
 
     float reading = ultrasonic.read_averaged(5);
-    reading = 30.48 - reading + 10;
+    reading = prototype_height - reading + 10;
     reading = max(reading,0.0f);
 
     if(reading > critical_height){
-      digitalWrite(siren,HIGH);
-    }else{
       digitalWrite(siren,LOW);
+    }else{
+      digitalWrite(siren,HIGH);
     }
 
     Serial.print(reading);
