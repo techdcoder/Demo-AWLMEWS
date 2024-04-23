@@ -11,7 +11,7 @@
 #define WIFI_PASSWORD "physics556"
 
 //#define SERVER_IP "192.168.1.37"
-#define SERVER_IP "192.168.8.169"
+#define SERVER_IP "192.168.244.47"
 #define SERVER_PORT 3600
 
 
